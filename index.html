@@ -772,10 +772,17 @@
     50% { box-shadow: 0 0 0 10px rgba(230,57,70,0); }
   }
   @media (max-width: 700px) {
-    .wa-float { bottom: 16px; left: 16px; padding: 14px 22px 14px 18px; font-size: 16px; }
-    .wa-float svg { width: 24px; height: 24px; }
-    .wa-float .wa-stack .main { font-size: 16px; }
-    .wa-float .wa-stack .lead { font-size: 11px; }
+    /* Compact circular button — stops covering content */
+    .wa-float {
+      bottom: 20px; left: 20px;
+      width: 64px; height: 64px;
+      padding: 0; border-radius: 50%;
+      justify-content: center; align-items: center;
+      box-shadow: 4px 4px 0 var(--ink), 0 10px 24px -6px rgba(37,211,102,0.55);
+    }
+    .wa-float .wa-stack { display: none; }
+    .wa-float svg { width: 32px; height: 32px; }
+    .wa-float .ping { top: -4px; right: -4px; width: 14px; height: 14px; }
   }
 
   /* ============ MOBILE IMPROVEMENTS ============ */
@@ -819,9 +826,15 @@
   /* Features: reset photo-card row span in single column, shrink cards */
   @media (max-width: 460px) {
     .feat-card.c-photo { grid-row: span 1 !important; }
+    .feat-photo { aspect-ratio: 4/3; min-height: unset; }
     .feat-card { padding: 20px 18px 18px; min-height: 150px; }
     .feat-title { font-size: 17px; }
     .feat-desc { font-size: 13.5px; }
+  }
+
+  /* Paw decorations: reduce opacity on mobile so they don't distract from content */
+  @media (max-width: 700px) {
+    .paw-trail .paw { opacity: 0.2 !important; }
   }
 
   /* Facility: reduce card padding, collapse feature list to 1 col */
@@ -853,13 +866,6 @@
     .foot-bottom { flex-direction: column; align-items: center; text-align: center; }
   }
 
-  /* WA float: tighter on very narrow screens */
-  @media (max-width: 380px) {
-    .wa-float { left: 8px; padding: 11px 14px 11px 12px; }
-    .wa-float svg { width: 20px; height: 20px; }
-    .wa-float .wa-stack .main { font-size: 13px; }
-    .wa-float .wa-stack .lead { font-size: 10px; }
-  }
 </style>
 </head>
 <body>
